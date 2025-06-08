@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  whatsappgw:
+    container_name: whatsappgw
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./session:/app/session
+    environment:
+      - WEBHOOK_URLS=${WEBHOOK_URLS}
+    restart: unless-stopped
